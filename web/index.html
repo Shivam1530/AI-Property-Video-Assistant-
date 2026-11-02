@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reality Assistant Drive</title><link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="nav"><a class="brand" href="/">Reality <span>Drive</span></a><span class="status"><i></i> Local-first video studio</span></header>
+  <div class="nav-rule"></div>
+  <main>
+    <section class="hero"><p class="eyebrow">AI PROPERTY VIDEO STUDIO</p><h1>Turn a listing into<br><em>a cinematic story.</em></h1><p>Create a share-ready vertical property video from real images and verified listing facts.</p></section>
+    <section class="studio" aria-labelledby="create-title">
+      <form id="listing-form" class="panel" novalidate>
+        <div class="panel-head"><div><p class="eyebrow">01 / DETAILS</p><h2 id="create-title">Build your property reel</h2></div><button type="button" id="preview" class="text-btn">Preview script</button></div>
+        <div class="fields">
+          <label>Property name<input name="property_name" required maxlength="90" placeholder="Azure Heights"></label>
+          <label>Location<input name="location" required maxlength="100" placeholder="Sector 70, Noida"></label>
+          <label>Price<input name="price" required maxlength="60" placeholder="₹1.25 Cr"></label>
+          <label>Property type<input name="property_type" required maxlength="60" placeholder="2-BHK Apartment"></label>
+          <label class="wide">Key features <small>Separate with commas</small><input name="features" required placeholder="Private balcony, Near metro, 24/7 security"></label>
+          <label class="wide">Call to action<input name="cta" required maxlength="120" placeholder="Book a private viewing today"></label>
+        </div>
+        <div class="upload"><label for="images"><strong>Property images</strong><span>Upload 4–8 JPG, PNG, or WebP images.</span></label><input id="images" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple required><output id="image-count">No images selected</output></div>
+        <div class="optional"><label><input type="checkbox" name="narration"> Add local narration</label><label><input type="checkbox" name="cinema_mode" id="cinema-mode" disabled> Cinema Mode <span id="cinema-tooltip"></span></label><label>Licensed music <input name="music" type="file" accept="audio/mpeg,audio/wav"></label></div>
+        <p class="notice">Use genuine property photos. This tool enhances presentation; it does not create fictional rooms or amenities.</p>
+        <button class="generate" type="submit"><span>Generate video</span><b>→</b></button>
+      </form>
+      <aside class="preview panel"><p class="eyebrow">02 / PREVIEW</p><div id="preview-content" class="preview-empty"><div class="play">▶</div><h2>Your video outline</h2><p>Complete the form, then preview the fact-safe captions before exporting.</p></div><div id="render-progress" class="render-progress" hidden aria-live="polite"><div class="render-spinner" role="status"></div><p class="render-text">Rendering your video… this can take a few minutes.</p></div></aside>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><script src="/assets/app.js"></script>
+</body>
+</html>
