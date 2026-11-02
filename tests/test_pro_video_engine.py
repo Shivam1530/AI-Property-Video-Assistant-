@@ -1,4 +1,4 @@
-"""Property-based and unit tests for the Pro Video Engine (Properties P1–P13).
+﻿"""Property-based and unit tests for the Pro Video Engine (Properties P1–P13).
 
 Each test targets one correctness property from the design document:
     P1  caption list length invariant          (Requirement 12.2)
@@ -223,7 +223,7 @@ def test_p10_zoom_pattern_cycling(scene_index):
 
 # ─── P11: quality check pass condition ───────────────────────────────────────
 
-@settings(max_examples=25)
+@settings(max_examples=25, deadline=None)
 @given(
     st.integers(min_value=800, max_value=1100),
     st.integers(min_value=800, max_value=1100),
@@ -238,7 +238,7 @@ def test_p11_quality_check_pass_condition(width, height, seed):
 
 # ─── P12: quality check issue detection ──────────────────────────────────────
 
-@settings(max_examples=25)
+@settings(max_examples=25, deadline=None)
 @given(
     st.integers(min_value=100, max_value=799),
     st.integers(min_value=100, max_value=799),

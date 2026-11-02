@@ -1,4 +1,4 @@
-"""
+﻿"""
 app/editor.py — master render orchestrator.
 
 Selects the rendering pipeline per scene (SVD cinema clips when Cinema Mode is
@@ -52,7 +52,7 @@ def _normalise_svd_clip(source: Path, output: Path, duration: float) -> None:
     _run([
         "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(source),
         "-t", str(duration), "-r", str(FPS),
-        "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
         str(output),
     ])
 

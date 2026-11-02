@@ -59,14 +59,15 @@ def generate_clip(image_path: Path, output_path: Path, motion_bucket: int = 127,
 
         # Re-encode to 1080x1920 portrait with FFmpeg
         import subprocess
-        result = subprocess.run([
+        proc = subprocess.Popen([
             "ffmpeg", "-y", "-i", str(tmp),
             "-vf", "transpose=1,scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=black",
             "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
             str(output_path),
-        ], capture_output=True, text=True)
+        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc.communicate()
         tmp.unlink(missing_ok=True)
-        return result.returncode == 0
+        return proc.returncode == 0
     except Exception as exc:
         import logging
         logging.getLogger(__name__).warning("SVD inference failed: %s", exc)
